@@ -8,6 +8,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "astro": "^4.0.0"
   },
   "devDependencies": {

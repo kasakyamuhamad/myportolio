@@ -1,12 +1,68 @@
 ---
+let isDark = false;
 ---
-<header class="bg-gray-900 text-white p-6">
-  <nav class="container mx-auto flex justify-between items-center">
-    <h1 class="text-2xl font-bold">My Portfolio</h1>
-    <ul class="flex gap-6">
-      <li><a href="#about" class="hover:text-indigo-400">About</a></li>
-      <li><a href="#projects" class="hover:text-indigo-400">Projects</a></li>
-      <li><a href="#contact" class="hover:text-indigo-400">Contact</a></li>
-    </ul>
+
+<header class="flex justify-between items-center py-6 px-8 bg-white dark:bg-gray-900 shadow-md transition-colors duration-300">
+  <h1 class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">My Portfolio</h1>
+
+  <nav class="space-x-6 text-gray-700 dark:text-gray-300">
+    <a href="#about" class="hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+    <a href="#projects" class="hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+    <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
   </nav>
+
+  <!-- 🌙 Toggle Button -->
+  <button
+    id="theme-toggle"
+    aria-label="Toggle Dark Mode"
+    class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+  >
+    <!-- Sun icon (light mode) -->
+    <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 3v1m0 16v1m8.66-8.66h-1M4.34 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+    </svg>
+
+    <!-- Moon icon (dark mode) -->
+    <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+    </svg>
+  </button>
+  <div id="fade-overlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-500 z-50"></div>
+
 </header>
+
+<!-- Theme toggle script -->
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const darkIcon = document.getElementById('theme-toggle-dark-icon');
+  const lightIcon = document.getElementById('theme-toggle-light-icon');
+  const overlay = document.getElementById('fade-overlay');
+
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+    lightIcon.classList.remove('hidden');
+  } else {
+    darkIcon.classList.remove('hidden');
+  }
+
+  themeToggle.addEventListener('click', () => {
+    overlay.classList.add('opacity-50'); // fade overlay in
+
+    setTimeout(() => {
+      overlay.classList.remove('opacity-50'); // fade out
+    }, 300);
+
+    darkIcon.classList.toggle('hidden');
+    lightIcon.classList.toggle('hidden');
+
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+    }
+  });
+</script>

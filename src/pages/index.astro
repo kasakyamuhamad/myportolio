@@ -8,45 +8,101 @@ import "../styles/globals.css";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Zuhyre Techs</title>
+    <title>My Portfolio</title>
+    <script src="https://kit.fontawesome.com/a2b1c57a22.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-  <body>
+
+  <body class="bg-gray-50 text-gray-800">
     <Header />
 
-    <!-- Hero -->
-    <section class="container mx-auto text-center py-20">
-      <img src="/profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto shadow-md" />
-      <h1 class="text-4xl font-bold mt-6">Hi, I'm <span class="text-indigo-600">Your Name</span></h1>
-      <p class="text-lg text-gray-600 mt-3">Frontend Developer • Designer • Dreamer</p>
-    </section>
+    <!-- Hero Section -->
+    <section class="container mx-auto text-center py-20" data-aos="fade-down">
+  <img
+    src="/profile.jpg"
+    alt="Profile Picture"
+    class="w-40 h-40 rounded-full mx-auto shadow-lg ring-4 ring-indigo-500/20 object-cover"
+  />
+  <h1 class="text-4xl font-bold mt-6">
+    Hi, I'm <span class="text-indigo-600">Muhammad</span>
+  </h1>
+  <p class="text-lg text-gray-600 mt-3">
+    Frontend Developer • Designer • Tech Enthusiast
+  </p>
+</section>
 
-    <!-- About -->
-    <section id="about" class="container mx-auto py-16 px-6">
-      <h2 class="text-3xl font-bold text-center">About Me</h2>
-      <p class="mt-6 text-center text-gray-700 max-w-2xl mx-auto">
-        I'm a passionate developer who loves building beautiful, fast websites.  
-        This portfolio is built with Astro + TailwindCSS and deployed on Vercel 🚀
-      </p>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="container mx-auto py-16 px-6">
-      <h2 class="text-3xl font-bold text-center">Projects</h2>
-      <div class="grid md:grid-cols-3 gap-8 mt-8">
-        <ProjectCard title="Project One" description="A cool project I built." link="https://example.com" />
-        <ProjectCard title="Project Two" description="Another amazing project." link="https://example.com" />
-        <ProjectCard title="Project Three" description="A fun side project." link="https://example.com" />
+    <!-- About Section -->
+    <section
+  id="about"
+  class="container mx-auto py-16 px-6 text-center bg-gray-50 dark:bg-gray-900 transition-colors duration-500"
+  data-aos="fade-up"
+>
+  <h2 class="text-3xl font-bold mb-4 text-gray-800 dark:text-white">About Me</h2>
+  <p class="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+    I'm a passionate developer who loves building beautiful, fast websites.  
+    This portfolio is built with Astro + TailwindCSS and deployed on Vercel 🚀
+  </p>
+</section>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <span class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full font-medium">Frontend</span>
+        <span class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full font-medium">UI/UX</span>
+        <span class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full font-medium">JavaScript</span>
+        <span class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full font-medium">React</span>
+        <span class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full font-medium">Astro</span>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="container mx-auto py-16 px-6 text-center">
-      <h2 class="text-3xl font-bold">Get in Touch</h2>
-      <p class="mt-4 text-gray-700">Feel free to reach out via email or socials!</p>
-      <a href="mailto:youremail@example.com" class="mt-6 inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-700">Say Hello</a>
-    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="container mx-auto py-16 px-6" data-aos="fade-up">
+  <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
+  <div class="grid md:grid-cols-3 gap-8">
+    <ProjectCard
+      title="Modern Portfolio"
+      description="A fast, elegant portfolio built with Astro and Tailwind."
+      link="https://example.com"
+      image="/project1.jpg"
+      data-aos="zoom-in-up"
+      data-aos-delay="100"
+    />
+    <ProjectCard
+      title="Blog Platform"
+      description="A minimal blog with markdown and animations."
+      link="https://example.com"
+      image="/project2.jpg"
+      data-aos="zoom-in-up"
+      data-aos-delay="200"
+    />
+    <ProjectCard
+      title="AI Dashboard"
+      description="Interactive dashboard with real-time insights."
+      link="https://example.com"
+      image="/project3.jpg"
+      data-aos="zoom-in-up"
+      data-aos-delay="300"
+    />
+  </div>
+</section>
+
+
+
+    <!-- Contact Section -->
+    <section
+  id="contact"
+  class="container mx-auto py-16 px-6 text-center"
+  data-aos="fade-up"
+>
+  <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
+  <p class="text-gray-700 mb-6">Feel free to reach out via email or socials!</p>
+  <a
+    href="mailto:zuhyre13@gmail.com"
+    class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-700 transition"
+  >
+    Say Hello 👋
+  </a>
+</section>
 
     <Footer />
+        <script type="module" src="/src/scripts/aos-init.js"></script>
+
   </body>
 </html>
